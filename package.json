@@ -2,6 +2,7 @@
   "name": "ott-dashboard",
   "version": "0.1.0",
   "private": true,
+  "repository": {"url": "https://github.com/H-Maksym/ott-dashboard.git"},
   "scripts": {
     "dev": "next dev",
     "build": "next build",
