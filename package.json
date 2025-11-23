@@ -5,11 +5,22 @@
   "repository": {
     "url": "https://github.com/H-Maksym/ott-dashboard.git"
   },
+  "keywords": [
+    "react",
+    "next",
+    "web",
+    "tailwindcss"
+  ],
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint src/**/*.{ts,tsx,js,jsx} --ext .ts,.tsx,.js,.jsx --max-warnings 0",
+    "lint": "next lint",
+    "check-types": "tsc --pretty --noEmit",
+    "check-lint": "eslint . --ext ts --ext tsx --ext js --report-unused-disable-directives --max-warnings 0",
+    "prettier": "prettier --write .",
+    "check-format": "prettier --check .",
+    "fix": "pnpm run prettier && pnpm run lint --fix",
     "lint:fix": "eslint . --ext ts,tsx --fix",
     "format": "prettier --write ."
   },
@@ -38,10 +49,15 @@
     "eslint-plugin-import": "^2.32.0",
     "eslint-plugin-prettier": "^5.5.4",
     "eslint-plugin-tailwind": "^0.2.1",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.2.7",
     "prettier": "^3.6.2",
     "prettier-plugin-tailwindcss": "^0.7.1",
     "tailwindcss": "^4",
     "typescript": "^5"
+  },
+  "lint-staged": {
+    "*.{ts,tsx,js,jsx}": "eslint --fix --max-warnings=0 && prettier --write"
   },
   "packageManager": "pnpm@10.21.0+sha512.da3337267e400fdd3d479a6c68079ac6db01d8ca4f67572083e722775a796788a7a9956613749e000fac20d424b594f7a791a5f4e2e13581c5ef947f26968a40"
 }
